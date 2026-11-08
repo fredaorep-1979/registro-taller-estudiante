@@ -1,7 +1,6 @@
 # Glosario de Desarrollo Web
 
-
-Definiciones de los términos utilizados en las actividades y en el proyecto.
+Definiciones de los términos utilizados en las actividades y en el proyecto final, con ejemplos relacionados con el registro de talleres.
 
 | Palabra | Significado con mis palabras |
 | --- | --- |
@@ -63,3 +62,93 @@ Definiciones de los términos utilizados en las actividades y en el proyecto.
 | `.gitignore` | Archivo de patrones para excluir archivos no rastreados, como dependencias y configuración privada. |
 | DELETE (HTTP) | Método que utiliza la API para eliminar una inscripción por su identificador. |
 | 404 Not Found | Estado HTTP que indica que el recurso solicitado no se encontró. |
+
+## HTML, formularios y accesibilidad
+
+| Palabra | Significado con mis palabras |
+| --- | --- |
+| Etiqueta semántica | Etiqueta que comunica la función del contenido, como `main` para el contenido principal. |
+| `section` | Agrupa contenido relacionado, normalmente con un encabezado que describe el tema. |
+| `form` | Agrupa los controles que permiten capturar y enviar información. |
+| `label` y `for` | La etiqueta describe un control; su atributo `for` debe coincidir con el `id` de ese control. |
+| `id` | Identificador único de un elemento dentro del documento, como `formulario-registro`. |
+| `name` | Nombre de la clave del dato de un control. FormData lo utiliza para recoger su valor. |
+| `type` | Define el tipo de control: `email` pide formato de correo y `tel` permite introducir un teléfono. `tel` por sí solo no valida su formato. |
+| `placeholder` | Texto de ejemplo que aparece cuando el campo está vacío; no sustituye a la etiqueta. |
+| `select` y `option` | Crean una lista de opciones, como los talleres y horarios disponibles. |
+| `disabled` | Deshabilita un control. Lo uso en el botón mientras se envía la inscripción. |
+| `aria-describedby` | Relaciona un elemento con uno o varios textos que lo describen, usando sus identificadores. |
+| `aria-live` | Indica a las tecnologías de asistencia que anuncien los cambios de una región, como un mensaje de resultado. |
+| Viewport | Área del navegador disponible para mostrar la página; su ancho se usa en las media queries. |
+
+## CSS y diseño adaptable
+
+| Palabra | Significado con mis palabras |
+| --- | --- |
+| Selector | Expresión que indica a qué elementos se aplica una regla CSS. `.tarjeta` selecciona una clase y `#nombre` un identificador. |
+| Clase | Nombre reutilizable que permite aplicar estilos a varios elementos mediante el atributo `class`. |
+| Modelo de caja | Forma de representar un elemento con contenido, padding, borde y margen. |
+| `border` | Contorno de la caja de un elemento; puede tener grosor, estilo y color. |
+| `gap` | Separación entre elementos o pistas de una distribución Flexbox o Grid. |
+| `justify-content` | En Flexbox, distribuye los elementos sobre el eje principal. |
+| `align-items` | En Flexbox, alinea los elementos sobre el eje transversal. |
+| `flex-direction` | Define la dirección del eje principal: `row` organiza en fila y `column` en columna. |
+| `grid-template-columns` | Define las columnas de Grid; `1fr 1fr` crea dos columnas con la misma proporción. |
+| Diseño adaptable | Diseño que ajusta tamaños, espacios y distribución al ancho disponible de la pantalla. |
+
+## JavaScript, eventos y comunicación
+
+| Palabra | Significado con mis palabras |
+| --- | --- |
+| Objeto | Conjunto de propiedades y valores, como los cinco datos de una inscripción. |
+| Booleano | Valor que puede ser `true` o `false`; lo devuelve la función que comprueba si hay cupo. |
+| `length` | Propiedad que indica la longitud de un arreglo; en el ejercicio de tres nombres vale 3. |
+| `return` | Termina la ejecución de una función y puede devolver un resultado. |
+| `querySelector()` | Encuentra el primer elemento que coincide con un selector CSS. |
+| `addEventListener()` | Registra una función para que se ejecute cuando ocurra un evento. |
+| `submit` | Evento del envío de un formulario; puede iniciarse con el botón o con Enter en un campo. |
+| `preventDefault()` | Cancela la acción predeterminada de un evento; en submit evita el envío normal que puede recargar la página. |
+| `textContent` | Lee o escribe texto dentro de un elemento sin interpretarlo como etiquetas HTML. |
+| `Object.fromEntries()` | Construye un objeto a partir de pares de claves y valores, como los obtenidos de FormData. |
+| `try`, `catch` y `finally` | Organizan una operación, el manejo de errores y las tareas finales, como volver a habilitar el botón. |
+| `response.ok` | Indica si la respuesta HTTP tiene un estado entre 200 y 299. Un error 400 no hace que fetch falle automáticamente. |
+| DevTools | Herramientas del navegador para inspeccionar elementos, revisar la consola y observar solicitudes en Network. |
+
+## Servidor, datos y estados HTTP
+
+| Palabra | Significado con mis palabras |
+| --- | --- |
+| `localhost` | Nombre que apunta a la propia computadora. En el proyecto uso `http://localhost:3000`. |
+| Puerto | Número que identifica el punto de conexión de un servicio, como 3000 para nuestro servidor. |
+| `package.json` | Archivo que describe el proyecto, sus dependencias y scripts, incluido `start`. |
+| `package-lock.json` | Registra las versiones resueltas de los paquetes para facilitar instalaciones reproducibles. |
+| `node_modules` | Carpeta donde npm instala los paquetes; no se incluye en el repositorio. |
+| `npm install` | Instala las dependencias declaradas en el proyecto y las dependencias que estas necesitan. |
+| `npm start` | Ejecuta el script start; en este proyecto inicia `node server.js`. |
+| `express.json()` | Middleware que interpreta el cuerpo JSON de las solicitudes para leerlo en `req.body`. |
+| `express.static()` | Entrega archivos estáticos, como HTML, CSS y JavaScript, desde una carpeta. |
+| `req.params` | Contiene los parámetros definidos en la ruta; `req.params.id` identifica la inscripción que se quiere eliminar. |
+| `res.json()` | Envía datos como una respuesta JSON desde Express. |
+| `res.status()` | Establece el estado HTTP que tendrá la respuesta. |
+| 200 OK | La solicitud se resolvió correctamente; lo uso al consultar o eliminar una inscripción. |
+| 201 Created | El servidor creó un recurso, como una inscripción nueva. |
+| 400 Bad Request | La solicitud contiene datos inválidos o incompletos. |
+| Persistencia | Conservación de datos más allá del proceso que los creó; nuestro arreglo en memoria no ofrece esa permanencia. |
+| `CREATE TABLE` | Sentencia SQL que crea la estructura de una tabla. |
+| `SELECT` | Sentencia SQL que consulta datos. |
+| `INSERT` | Sentencia SQL que agrega filas. |
+| `UPDATE` | Sentencia SQL que modifica filas; WHERE permite indicar cuáles. |
+| `DELETE` (SQL) | Sentencia que elimina filas de una tabla. Es distinta del método HTTP DELETE de nuestra API. |
+
+## Git y entrega del proyecto
+
+| Palabra | Significado con mis palabras |
+| --- | --- |
+| `git init` | Inicializa un repositorio Git dentro de la carpeta. |
+| `git status` | Muestra el estado del proyecto y los cambios preparados o pendientes. |
+| `git add` | Prepara la versión actual de los archivos seleccionados para el siguiente commit. |
+| `git log --oneline` | Muestra un resumen del historial, con identificador y mensaje por commit. |
+| Rama | Línea de desarrollo del repositorio; en nuestro proyecto se utiliza `master`. |
+| Remoto y `origin` | Un remoto identifica otro repositorio mediante una dirección. `origin` es el nombre que dimos al repositorio de GitHub. |
+| README | Documento que presenta el proyecto y explica cómo instalarlo, iniciarlo y probarlo. |
+| Repositorio privado | Repositorio al que solo pueden acceder las cuentas autorizadas. |
