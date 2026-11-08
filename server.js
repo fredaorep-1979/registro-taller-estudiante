@@ -49,6 +49,15 @@ app.post("/api/inscripciones", (req, res) => {
   return res.status(201).json(registro);
 });
 
+app.delete("/api/inscripciones/:id", (req, res) => {
+  const indice = inscripciones.findIndex(registro => registro.id === req.params.id);
+  if (indice === -1) {
+    return res.status(404).json({ mensaje: "No se encontró la inscripción." });
+  }
+  inscripciones.splice(indice, 1);
+  return res.json({ mensaje: "Inscripción eliminada correctamente." });
+});
+
 // Devuelve un mensaje JSON claro si el cuerpo enviado no es JSON válido.
 app.use((error, req, res, next) => {
   if (error.type === "entity.parse.failed") {

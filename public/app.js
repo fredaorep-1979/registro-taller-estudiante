@@ -78,7 +78,15 @@ async function cargarInscripciones() {
     }
     registros.forEach(registro => {
       const elemento = document.createElement("li");
-      elemento.textContent = `${registro.nombre} · ${registro.taller} · ${registro.horario}`;
+      const descripcion = document.createElement("span");
+      descripcion.textContent = `${registro.nombre} · ${registro.taller} · ${registro.horario}`;
+      const quitar = document.createElement("button");
+      quitar.type = "button";
+      quitar.className = "boton-quitar";
+      quitar.textContent = "Quitar";
+      quitar.setAttribute("aria-label", `Quitar inscripción de ${registro.nombre}`);
+      quitar.addEventListener("click", () => eliminarInscripcion(registro.id, registro.nombre, quitar));
+      elemento.append(descripcion, quitar);
       lista.append(elemento);
     });
     return true;
@@ -89,6 +97,29 @@ async function cargarInscripciones() {
     aviso.textContent = "No se pudo cargar la lista. Comprueba la conexión y vuelve a cargar la página.";
     lista.append(aviso);
     return false;
+  }
+}
+
+async function eliminarInscripcion(id, nombre, boton) {
+  if (!window.confirm(`¿Quieres quitar la inscripción de ${nombre}?`)) return;
+  boton.disabled = true;
+  mensaje.classList.remove("mensaje-error");
+  try {
+    const respuesta = await fetch(`/api/inscripciones/${encodeURIComponent(id)}`, { method: "DELETE" });
+    const resultado = await respuesta.json();
+    if (!respuesta.ok) {
+      mensaje.classList.add("mensaje-error");
+      mensaje.textContent = resultado.mensaje || "No se pudo eliminar la inscripción.";
+      if (respuesta.status === 404) await cargarInscripciones();
+      return;
+    }
+    mensaje.textContent = resultado.mensaje;
+    if (!await cargarInscripciones()) mensaje.textContent += " Recarga la página para actualizar la lista.";
+  } catch {
+    mensaje.classList.add("mensaje-error");
+    mensaje.textContent = "No se pudo confirmar la eliminación. Comprueba la conexión y vuelve a consultar la lista.";
+  } finally {
+    boton.disabled = false;
   }
 }
 

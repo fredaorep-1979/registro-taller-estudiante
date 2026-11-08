@@ -66,6 +66,10 @@ input[aria-invalid="true"], select[aria-invalid="true"] { border-color: #b33434;
 .participantes h2 { font-size: 17px; letter-spacing: -.3px; }
 #lista-inscripciones { list-style: none; display: grid; gap: 10px; padding: 0; margin: 15px 0 0; font-size: 13px; }
 #lista-inscripciones li { padding: 12px; background: #eff7f4; border-radius: 8px; overflow-wrap: anywhere; }
+#lista-inscripciones li:not(.vacio) { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+#lista-inscripciones li > span { min-width: 0; }
+.boton-quitar { flex-shrink: 0; min-height: 44px; margin: 0; padding: 8px 10px; border: 1px solid #b45353; background: white; color: #922e2e; box-shadow: none; font-size: 12px; }
+.boton-quitar:hover { background: #fff0f0; }
 #lista-inscripciones .vacio { color: #627681; border: 1px dashed #d7e1e4; background: #fafcfc; padding: 19px 12px; text-align: center; }
 footer { display: flex; justify-content: space-between; gap: 16px; padding: 28px 0; margin-top: 38px; border-top: 1px solid #dce5e5; color: #5d737d; font-size: 11px; line-height: 1.6; }
 @media (max-width: 850px) {

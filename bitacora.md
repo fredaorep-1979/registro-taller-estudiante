@@ -567,9 +567,38 @@ git log --oneline
 
 **Mi respuesta:** No. Prepara los cambios; la versión se crea con `git commit`.
 
-## Glosario en construcción para el final de la clase
+## Proyecto final: registro de participantes para un taller
 
-Iré completando este glosario con los términos de las actividades; esta es la primera recopilación.
+**Objetivo cumplido:** La aplicación registra nombre completo, correo, teléfono, taller y horario, consulta participantes y permite quitar una inscripción. Se integraron las actividades anteriores en la carpeta base del proyecto.
+
+**Componentes:** HTML define los controles y sus etiquetas; CSS organiza la página con Grid, Flexbox y media queries; JavaScript valida y envía los datos con fetch. Express vuelve a validar, genera un identificador y guarda el registro temporalmente en un arreglo.
+
+**Extensión realizada:** Agregué `DELETE /api/inscripciones/:id`. Devuelve 200 y un mensaje si elimina el registro, o 404 si el identificador no existe. Cada participante tiene un botón “Quitar” que pide confirmación y actualiza la lista. Cancelar mantiene la inscripción.
+
+**Comprobación final:**
+
+- [x] Los cinco campos tienen etiquetas asociadas y son obligatorios.
+- [x] Un envío válido devuelve 201, limpia el formulario y muestra el participante sin recargar.
+- [x] Los campos vacíos y el correo inválido muestran un aviso y no se guardan.
+- [x] Express rechaza solicitudes inválidas con 400, incluso si se envían directamente a la API.
+- [x] La página es legible sin desbordamiento horizontal a 320 y 390 píxeles.
+- [x] Se comprobó el cambio de dos columnas a una entre 641 y 640 píxeles.
+- [x] Cancelar la eliminación mantiene el registro; confirmar lo elimina con 200.
+- [x] Eliminar nuevamente el mismo identificador devuelve 404.
+- [x] El README explica instalación, inicio y pruebas de GET, POST y DELETE.
+- [x] La bitácora contiene las actividades y el glosario; node_modules y .env están excluidos de Git.
+
+Las pruebas se realizaron con datos ficticios. El registro de prueba se eliminó al terminar. Los registros siguen siendo temporales: reiniciar el servidor vacía la lista. SQL se mantiene como ejercicio separado.
+
+**Explicación de un minuto:** Mi proyecto permite inscribir participantes a talleres. HTML presenta los campos y CSS adapta la distribución al tamaño de la pantalla. Al presionar el botón, JavaScript valida los datos y evita la recarga con preventDefault. Después envía un POST mediante fetch, convirtiendo el objeto a JSON. Express interpreta el cuerpo, verifica los cinco campos y guarda la inscripción en memoria. Si todo está correcto, responde 201; si encuentra datos inválidos, responde 400. El navegador interpreta la respuesta, muestra el mensaje y consulta la lista con GET. También puedo quitar un registro mediante DELETE. Git conserva los cambios y push los envía a GitHub.
+
+**Estado final:** El proyecto ya está conectado a la API y tiene un remoto en GitHub. Las notas de actividades anteriores que mencionan estas tareas pendientes describen su estado en ese momento. Los ejercicios externos pendientes indicados en sus secciones no se consideran realizados por completar este proyecto.
+
+**Repositorio de entrega:** https://github.com/fredaorep-1979/registro-taller-estudiante. Es privado y la persona que lo revise necesita acceso.
+
+## Glosario de la clase
+
+Definiciones de los términos utilizados en las actividades y en el proyecto.
 
 | Palabra | Significado con mis palabras |
 | --- | --- |
@@ -629,3 +658,5 @@ Iré completando este glosario con los términos de las actividades; esta es la 
 | Commit | Versión local formada por los cambios preparados, un autor y un mensaje. |
 | Push | Envío de commits locales a un repositorio remoto. |
 | `.gitignore` | Archivo de patrones para excluir archivos no rastreados, como dependencias y configuración privada. |
+| DELETE (HTTP) | Método que utiliza la API para eliminar una inscripción por su identificador. |
+| 404 Not Found | Estado HTTP que indica que el recurso solicitado no se encontró. |
