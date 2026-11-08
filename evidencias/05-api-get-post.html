@@ -1,0 +1,23 @@
+<html lang="es"><meta charset="utf-8"><title>API Express: consulta y creacion</title><style>body{font:18px/1.5 system-ui;margin:40px;background:#f1f6f5;color:#173147}h1{font-size:30px}article{background:white;padding:22px;border:1px solid #bfd6d1;border-radius:12px;margin:18px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.6 Consolas,monospace;background:#142b40;color:#e9f6f2;padding:18px;border-radius:8px}.status{color:#08776f;font-weight:bold}h2{font-size:21px}small{color:#526776}</style><h1>API Express: consulta y creacion</h1><p>Reporte de solicitudes HTTP reales a <b>http://localhost:3000/api/inscripciones</b></p><article><h2>Lista inicial</h2><p>GET /api/inscripciones <span class="status">? HTTP 200</span></p><b>Respuesta recibida</b><pre>[]</pre></article><article><h2>Crear registro valido</h2><p>POST /api/inscripciones <span class="status">? HTTP 201</span></p><b>JSON enviado</b><pre>{
+  &quot;nombre&quot;: &quot;Ana Evidencia&quot;,
+  &quot;correo&quot;: &quot;ana@example.com&quot;,
+  &quot;telefono&quot;: &quot;5551234567&quot;,
+  &quot;taller&quot;: &quot;HTML y CSS&quot;,
+  &quot;horario&quot;: &quot;Sábado 09:00 a 11:00&quot;
+}</pre><b>Respuesta recibida</b><pre>{
+  &quot;id&quot;: &quot;8bb189b8-a1d3-4f68-b86f-053526c8a1c9&quot;,
+  &quot;nombre&quot;: &quot;Ana Evidencia&quot;,
+  &quot;correo&quot;: &quot;ana@example.com&quot;,
+  &quot;telefono&quot;: &quot;5551234567&quot;,
+  &quot;taller&quot;: &quot;HTML y CSS&quot;,
+  &quot;horario&quot;: &quot;Sábado 09:00 a 11:00&quot;
+}</pre></article><article><h2>Consultar registro creado</h2><p>GET /api/inscripciones <span class="status">? HTTP 200</span></p><b>Respuesta recibida</b><pre>[
+  {
+    &quot;id&quot;: &quot;8bb189b8-a1d3-4f68-b86f-053526c8a1c9&quot;,
+    &quot;nombre&quot;: &quot;Ana Evidencia&quot;,
+    &quot;correo&quot;: &quot;ana@example.com&quot;,
+    &quot;telefono&quot;: &quot;5551234567&quot;,
+    &quot;taller&quot;: &quot;HTML y CSS&quot;,
+    &quot;horario&quot;: &quot;Sábado 09:00 a 11:00&quot;
+  }
+]</pre></article><small>Datos ficticios de prueba. Reporte generado a partir de las respuestas del servidor; no es una captura de DevTools.</small></html>

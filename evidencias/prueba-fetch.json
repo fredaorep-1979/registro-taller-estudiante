@@ -1,0 +1,25 @@
+{
+  "solicitud": {
+    "nombre": "Lucia Prueba",
+    "correo": "lucia@example.com",
+    "telefono": "5559876543",
+    "taller": "JavaScript",
+    "horario": "Sábado 11:00 a 13:00"
+  },
+  "estado": 201,
+  "respuesta": {
+    "id": "bde965e6-b4f3-4a8e-9b6e-ec36eda4d2e9",
+    "nombre": "Lucia Prueba",
+    "correo": "lucia@example.com",
+    "telefono": "5559876543",
+    "taller": "JavaScript",
+    "horario": "Sábado 11:00 a 13:00"
+  },
+  "prueba400": {
+    "nota": "Se modifico el correo de la peticion de prueba para comprobar la validacion del servidor.",
+    "estado": 400,
+    "respuesta": {
+      "mensaje": "El correo debe tener un formato válido, por ejemplo: ana@ejemplo.com."
+    }
+  }
+}

@@ -1,0 +1,155 @@
+[
+  {
+    "prueba": "Lista inicial",
+    "metodo": "GET",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": null,
+    "estado": 200,
+    "respuesta": []
+  },
+  {
+    "prueba": "Crear registro valido",
+    "metodo": "POST",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": {
+      "nombre": "Ana Evidencia",
+      "correo": "ana@example.com",
+      "telefono": "5551234567",
+      "taller": "HTML y CSS",
+      "horario": "Sábado 09:00 a 11:00"
+    },
+    "estado": 201,
+    "respuesta": {
+      "id": "8bb189b8-a1d3-4f68-b86f-053526c8a1c9",
+      "nombre": "Ana Evidencia",
+      "correo": "ana@example.com",
+      "telefono": "5551234567",
+      "taller": "HTML y CSS",
+      "horario": "Sábado 09:00 a 11:00"
+    }
+  },
+  {
+    "prueba": "Consultar registro creado",
+    "metodo": "GET",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": null,
+    "estado": 200,
+    "respuesta": [
+      {
+        "id": "8bb189b8-a1d3-4f68-b86f-053526c8a1c9",
+        "nombre": "Ana Evidencia",
+        "correo": "ana@example.com",
+        "telefono": "5551234567",
+        "taller": "HTML y CSS",
+        "horario": "Sábado 09:00 a 11:00"
+      }
+    ]
+  },
+  {
+    "prueba": "Correo incorrecto",
+    "metodo": "POST",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": {
+      "nombre": "Ana Evidencia",
+      "correo": "correo-invalido",
+      "telefono": "5551234567",
+      "taller": "HTML y CSS",
+      "horario": "Sábado 09:00 a 11:00"
+    },
+    "estado": 400,
+    "respuesta": {
+      "mensaje": "El correo debe tener un formato válido, por ejemplo: ana@ejemplo.com."
+    }
+  },
+  {
+    "prueba": "Campo obligatorio vacio",
+    "metodo": "POST",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": {
+      "nombre": "   ",
+      "correo": "ana@example.com",
+      "telefono": "5551234567",
+      "taller": "HTML y CSS",
+      "horario": "Sábado 09:00 a 11:00"
+    },
+    "estado": 400,
+    "respuesta": {
+      "mensaje": "El campo nombre es obligatorio y debe ser texto."
+    }
+  },
+  {
+    "prueba": "Tipo de dato incorrecto",
+    "metodo": "POST",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": {
+      "nombre": "Ana Evidencia",
+      "correo": "ana@example.com",
+      "telefono": 123,
+      "taller": "HTML y CSS",
+      "horario": "Sábado 09:00 a 11:00"
+    },
+    "estado": 400,
+    "respuesta": {
+      "mensaje": "El campo telefono es obligatorio y debe ser texto."
+    }
+  },
+  {
+    "prueba": "Telefono con letras",
+    "metodo": "POST",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": {
+      "nombre": "Ana Evidencia",
+      "correo": "ana@example.com",
+      "telefono": "abcdefgh",
+      "taller": "HTML y CSS",
+      "horario": "Sábado 09:00 a 11:00"
+    },
+    "estado": 400,
+    "respuesta": {
+      "mensaje": "El teléfono debe contener de 8 a 15 dígitos; se permiten + al inicio, espacios, guiones y paréntesis."
+    }
+  },
+  {
+    "prueba": "Horario inexistente",
+    "metodo": "POST",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": {
+      "nombre": "Ana Evidencia",
+      "correo": "ana@example.com",
+      "telefono": "5551234567",
+      "taller": "HTML y CSS",
+      "horario": "No existe"
+    },
+    "estado": 400,
+    "respuesta": {
+      "mensaje": "Selecciona un taller y un horario disponibles."
+    }
+  },
+  {
+    "prueba": "JSON mal formado",
+    "metodo": "POST",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": "{",
+    "estado": 400,
+    "respuesta": {
+      "mensaje": "El cuerpo de la solicitud debe contener JSON válido."
+    }
+  },
+  {
+    "prueba": "Errores no agregan registros",
+    "metodo": "GET",
+    "url": "http://localhost:3000/api/inscripciones",
+    "enviado": null,
+    "estado": 200,
+    "respuesta": [
+      {
+        "id": "8bb189b8-a1d3-4f68-b86f-053526c8a1c9",
+        "nombre": "Ana Evidencia",
+        "correo": "ana@example.com",
+        "telefono": "5551234567",
+        "taller": "HTML y CSS",
+        "horario": "Sábado 09:00 a 11:00"
+      }
+    ]
+  }
+]

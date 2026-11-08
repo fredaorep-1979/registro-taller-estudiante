@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Práctica JavaScript · Cuenta las inscripciones</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f0f6f5; color: #183247; font: 17px/1.6 system-ui, sans-serif; }
+    main { max-width: 1180px; margin: 40px auto; padding: 0 24px; }
+    .etiqueta { color: #08776f; font-size: 13px; font-weight: 800; letter-spacing: 2px; }
+    h1 { font-size: 38px; margin: 10px 0; line-height: 1.2; }
+    .columnas { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; margin-top: 28px; }
+    section { padding: 26px; border: 1px solid #ccdedb; border-radius: 16px; background: white; }
+    h2 { font-size: 21px; margin: 0 0 15px; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #182d42; color: #e8f5f2; border-radius: 10px; padding: 20px; font: 15px/1.8 Consolas, monospace; }
+    #resultado { padding: 18px; border-left: 5px solid #08776f; background: #e9f6f1; font-size: 23px; font-weight: 700; }
+    small { color: #526c78; }
+    footer { margin: 24px 0; color: #526c78; font-size: 14px; }
+    @media (max-width: 700px) { .columnas { grid-template-columns: 1fr; } h1 { font-size: 30px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="etiqueta">PRÁCTICA JAVASCRIPT · ARREGLOS, FUNCIONES Y DOM</p>
+    <h1>Cuenta las inscripciones</h1>
+    <p>Un arreglo guarda tres nombres. Una función cuenta sus elementos y el DOM muestra el resultado.</p>
+    <div class="columnas">
+      <section>
+        <h2>1. Código HTML</h2>
+        <pre>&lt;p id="resultado"&gt;&lt;/p&gt;</pre>
+        <h2>2. Código JavaScript ejecutado</h2>
+        <pre id="codigo"></pre>
+      </section>
+      <section>
+        <h2>3. Resultado en el párrafo</h2>
+        <p id="resultado"></p>
+        <h2>Nombres del arreglo</h2>
+        <ul id="nombres"></ul>
+        <h2>¿Qué aprendí?</h2>
+        <p><code>length</code> devuelve cuántos elementos tiene el arreglo. <code>return</code> entrega ese número y <code>textContent</code> lo escribe en el párrafo.</p>
+        <small>Ejercicio independiente con nombres ficticios. No representa registros guardados del formulario.</small>
+      </section>
+    </div>
+    <footer>Ejecución local en el navegador · Proyecto: registro-taller-estudiante</footer>
+  </main>
+  <script id="ejercicio">
+const inscripciones = ["Ana", "Luis", "Maria"];
+
+function contarInscripciones(lista) {
+  return lista.length;
+}
+
+document.querySelector("#resultado").textContent =
+  "Total de inscripciones: " +
+  contarInscripciones(inscripciones);
+  </script>
+  <script>
+    document.querySelector("#codigo").textContent = document.querySelector("#ejercicio").textContent.trim();
+    inscripciones.forEach(nombre => {
+      const elemento = document.createElement("li");
+      elemento.textContent = nombre;
+      document.querySelector("#nombres").append(elemento);
+    });
+  </script>
+</body>
+</html>
