@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro al taller de Desarrollo Web</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="contenedor">
+    <div class="barra-superior"><a class="marca" href="#inicio"><span aria-hidden="true">&lt;/&gt;</span> Aula Web <small>· Talleres</small></a><span class="nota-barra">Tu próxima idea empieza aquí</span></div>
+    <header class="encabezado" id="inicio">
+      <div>
+        <p class="etiqueta">● Universidad · Talleres de desarrollo web</p>
+        <h1>Aprende, crea<br>y <span>conecta.</span></h1>
+        <p class="descripcion">De tu primera línea de código a tu próxima gran idea. Elige un taller y empieza a construir para la web.</p>
+        <div class="temas"><span>HTML &amp; CSS</span><span>JavaScript</span><span>Node.js &amp; Express</span></div>
+      </div>
+      <div class="ilustracion" aria-hidden="true">
+        <div class="ventana-codigo">
+          <div class="ventana-barra"><span>● ● ●</span> tu-proxima-idea.html</div>
+          <div class="codigo"><span class="comentario">// Todo empieza con una idea</span><br>&lt;<span>main</span>&gt;<br>&nbsp; &lt;h1&gt;Hola, mundo.&lt;/h1&gt;<br>&nbsp; &lt;p&gt;Yo puedo crearlo.&lt;/p&gt;<br>&lt;/<span>main</span>&gt;</div>
+          <div class="ventana-pie">● Ideas listas para convertirse en código</div>
+        </div>
+        <span class="sello">Hecho para aprender ✦</span>
+      </div>
+    </header>
+
+    <div class="contenido">
+    <section class="panel formulario-panel" aria-labelledby="titulo-formulario">
+      <p class="paso">01 / TU PRÓXIMO PASO</p>
+      <h2 id="titulo-formulario">Reserva tu lugar</h2>
+      <p class="ayuda" id="indicacion">Completa tus datos de inscripción. Todos los campos son obligatorios.</p>
+      <form id="formulario-registro" aria-describedby="indicacion">
+        <div class="campo campo-completo">
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" name="nombre" type="text" required minlength="2" maxlength="100" autocomplete="name" placeholder="Escribe tu nombre y apellidos">
+        </div>
+
+        <div class="campo">
+        <label for="correo">Correo electrónico</label>
+        <input id="correo" name="correo" type="email" required maxlength="254" autocomplete="email" placeholder="tu.correo@ejemplo.com">
+        </div>
+        <div class="campo">
+          <label for="telefono">Teléfono</label>
+          <input id="telefono" name="telefono" type="tel" required maxlength="30" autocomplete="tel" aria-describedby="ayuda-telefono" placeholder="Ej. 555 123 4567">
+          <small id="ayuda-telefono" class="ayuda-campo">De 8 a 15 dígitos. Puedes usar + al inicio, espacios, guiones y paréntesis.</small>
+        </div>
+
+        <div class="campo">
+        <label for="taller">Taller</label>
+        <select id="taller" name="taller" required>
+          <option value="" disabled selected>Selecciona un taller</option>
+          <option value="HTML y CSS">HTML y CSS</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Node.js y Express">Node.js y Express</option>
+        </select>
+
+        </div>
+        <div class="campo">
+          <label for="horario">Horario</label>
+          <select id="horario" name="horario" required>
+            <option value="" disabled selected>Selecciona un horario</option>
+            <option value="Sábado 09:00 a 11:00">Sábado · 09:00 a 11:00</option>
+            <option value="Sábado 11:00 a 13:00">Sábado · 11:00 a 13:00</option>
+            <option value="Domingo 10:00 a 12:00">Domingo · 10:00 a 12:00</option>
+          </select>
+        </div>
+        <button type="submit">Reservar mi lugar <span aria-hidden="true">↗</span></button>
+      </form>
+      <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+    </section>
+
+    <aside class="complemento">
+      <section class="guia" aria-labelledby="titulo-guia">
+        <p class="paso">APRENDER HACIENDO</p>
+        <h2 id="titulo-guia">Una idea.<br>Muchas posibilidades.</h2>
+        <p>Encuentra el taller para dar tu siguiente paso.</p>
+        <ul class="lista-temas">
+          <li><span>01</span><div><strong>Diseña tu primera web</strong><small>Estructura y estilo con HTML y CSS.</small></div></li>
+          <li><span>02</span><div><strong>Dale vida a tus ideas</strong><small>Interactividad con JavaScript.</small></div></li>
+          <li><span>03</span><div><strong>Conecta con el servidor</strong><small>El siguiente paso con Node.js y Express.</small></div></li>
+        </ul>
+      </section>
+    <section class="panel participantes" aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">Participantes inscritos</h2>
+      <ul id="lista-inscripciones" aria-live="polite">
+        <li class="vacio">Aún no hay inscripciones.</li>
+      </ul>
+    </section>
+    </aside>
+    </div>
+    <footer>Universidad · Actividad de desarrollo web <span>Aprender es mejor cuando creamos juntos.</span></footer>
+  </main>
+</body>
+</html>
